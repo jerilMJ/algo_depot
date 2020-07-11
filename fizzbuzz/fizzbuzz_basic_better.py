@@ -25,10 +25,19 @@ if __name__ == '__main__':
         else:
             fizzbuzz.append(str(i))
 
-    print(', '.join(fizzbuzz))
-    for _ in range(100 // 15):
+    fb = '\n'.join(fizzbuzz) + '\n'
+    for _ in range((100 // 15) - 1):
         fizzbuzz = list(map(lambda x: str(int(x) + 15)
                             if x.isdigit() else x, fizzbuzz))
-        print(', '.join(fizzbuzz))
+        fb += '\n'.join(fizzbuzz) + '\n'
 
+    # Cutting down the overflow
+    mult = 100 // 15
+    overflow = abs(((mult + 1) * 15) - 100)
+    fizzbuzz = list(map(lambda x: str(int(x) + 15)
+                        if x.isdigit() else x, fizzbuzz))
+    fizzbuzz = fizzbuzz[:-overflow]
+    fb += '\n'.join(fizzbuzz) + '\n'
+
+    print(fb)
     watch.stop_measuring('fizzbuzz_basic_better')

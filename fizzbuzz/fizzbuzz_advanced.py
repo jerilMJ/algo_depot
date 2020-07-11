@@ -46,12 +46,11 @@ if __name__ == '__main__':
         if not div:
             fizzbuzz.append(str(i))
 
-    fb = ''
-    fb += ', '.join(fizzbuzz) + ', '
+    fb = '\n'.join(fizzbuzz) + '\n'
     for _ in range((limit // greatest) - 1):
         fizzbuzz = list(map(lambda x: str(int(x) + greatest)
                             if x.isdigit() else x, fizzbuzz))
-        fb += ', '.join(fizzbuzz) + ', '
+        fb += '\n'.join(fizzbuzz) + '\n'
 
     # Cutting down the overflow
     if limit % greatest != 0:
@@ -60,7 +59,7 @@ if __name__ == '__main__':
         fizzbuzz = list(map(lambda x: str(int(x) + greatest)
                             if x.isdigit() else x, fizzbuzz))
         fizzbuzz = fizzbuzz[:-overflow]
-        fb += ', '.join(fizzbuzz) + ', '
+        fb += '\n'.join(fizzbuzz) + '\n'
 
     print(fb)
     watch.stop_measuring('fizzbuzz_advanced')

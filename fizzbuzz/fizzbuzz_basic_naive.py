@@ -14,15 +14,13 @@ if __name__ == '__main__':
     fizzbuzz = ''
     for i in range(1, 101):
         if i % 15 == 0:
-            fizzbuzz += 'Fizz Buzz'
+            fizzbuzz += 'Fizz Buzz\n'
         elif i % 5 == 0:
-            fizzbuzz += 'Buzz'
+            fizzbuzz += 'Buzz\n'
         elif i % 3 == 0:
-            fizzbuzz += 'Fizz'
+            fizzbuzz += 'Fizz\n'
         else:
-            fizzbuzz += str(i)
-
-        fizzbuzz += ' '
+            fizzbuzz += f'{i}\n'
 
     print(fizzbuzz)
     watch.stop_measuring('fizzbuzz_basic_naive')
