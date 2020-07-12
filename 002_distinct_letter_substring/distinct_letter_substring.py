@@ -26,7 +26,9 @@ if __name__ == '__main__':
     count = 0
 
     for index, character in enumerate(input_string):
-        if len(longest_string) > index + 1:
+        rem = len(input_string) - (index + 1)
+
+        if count > rem:
             break
 
         if character not in longest_string:
