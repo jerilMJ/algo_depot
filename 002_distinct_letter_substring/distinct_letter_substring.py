@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import time_watch
-
+import time
 '''
     Let count = 0
     Let longest_string = 0
@@ -18,8 +18,9 @@ import time_watch
 if __name__ == '__main__':
     input_string = input()
 
+    start = time.time()
     watch = time_watch.TimeWatch()
-    watch.start_measuring()
+    # watch.start_measuring()
 
     input_string = input_string.lower()
     longest_string = ''
@@ -34,13 +35,13 @@ if __name__ == '__main__':
         if character not in longest_string:
             longest_string += character
         else:
-            count = count if count > len(
-                longest_string) else len(longest_string)
+            count = max(count, len(longest_string))
             pos = longest_string.find(character)
             longest_string = longest_string[pos + 1:]
             longest_string += character
 
-    count = count if count > len(longest_string) else len(longest_string)
+    count = max(count, len(longest_string))
     print(count)
+    print(time.time() - start)
 
-    watch.stop_measuring('distinct_letter_substring')
+    # watch.stop_measuring('distinct_letter_substring')
